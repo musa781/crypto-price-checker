@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>🧾 Current Price</h1>
+    <p>
+        <% if (price === "Not Found" || price === "Error fetching price") { %>
+            Sorry, we couldn’t fetch the price for <%= coin %>.
+        <% } else { %>
+            1 <strong><%= coin %></strong> = <strong><%= price %></strong> USD
+        <% } %>
+    </p>
+
+    <div class="result-card">
+        <h2>🧾 Current Price</h2>
+        <img src="/icons/<%= coin %>.png" alt="<%= coin %> icon" class="coin-icon">
+        <p class="price"><%= coin.toUpperCase() %> = <%= price %> USD</p>
+        <div class="emoji">🚀</div>
+        <a href="/">🔄 Check Another</a>
+    </div>
+
+   <button class="toggle-btn" onclick="toggleMode()">🌙 Toggle Dark Mode</button>
+
+    <script>
+    function toggleMode() {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem("mode", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    }
+
+    window.onload = () => {
+        if (localStorage.getItem("mode") === "dark") {
+        document.body.classList.add("dark-mode");
+        }
+    };
+    </script>
+
+    
+    
+</body>
+</html>

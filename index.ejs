@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto-Price-Predictor</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Crypto Price Predictor</h1>
+    <label for="coin">Select the crypto-currency</label>
+    <form action="/price" method="post">
+    <select name="coin" id="coin">
+        <option value="bitcoin">Bitcoin</option>
+        <option value="ethereum">Ethereum</option>
+        <option value="dogecoin">Dogecoin</option>
+        <option value="shiba-inu">Shiba Inu</option>
+        <option value="litecoin">Litecoin</option>
+        <option value="solana">Solana</option>
+        <option value="ripple">Ripple</option>
+        <option value="cardano">Cardano</option>
+    </select>
+  <br><br>
+        <button type="submit">Check Price</button>
+    </form>
+
+
+    <button class="toggle-btn" onclick="toggleMode()">🌙 Toggle Dark Mode</button>
+
+    <script>
+    function toggleMode() {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem("mode", document.body.classList.contains("dark-mode") ? "dark" : "light");
+    }
+
+    window.onload = () => {
+        if (localStorage.getItem("mode") === "dark") {
+        document.body.classList.add("dark-mode");
+        }
+    };
+    </script>
+
+
+
+
+
+</body>
+</html>
